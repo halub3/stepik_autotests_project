@@ -3,11 +3,12 @@ from .locators import ProductPageLocators
 
 
 class ProductPage(BasePage):
-    def add_to_basket(self):
+    def add_to_basket(self, solve_quiz=True):
         price = self.should_be_text_with_price_and_get_it()
         name = self.should_be_text_with_name_and_get_it()
         self.press_button(*ProductPageLocators.BASKET_BUTTON)
-        self.solve_quiz_and_get_code()
+        if solve_quiz:
+            self.solve_quiz_and_get_code()
         self.should_be_same_name_in_alert(name)
         self.should_be_same_price_in_alert(price)
 

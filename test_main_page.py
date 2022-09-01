@@ -5,7 +5,6 @@ from .pages.basket_page import BasketPage
 import pytest
 
 
-
 @pytest.mark.login_guest
 class TestLoginFromMainPage():
     def test_guest_can_go_to_login_page(browser):
